@@ -109,6 +109,9 @@ MONGODB_PORT=27017
 MONGODB_DB='house'
 MONGODB_COLLECTION='lianjiatotal'
 
+# City
+CITY_CODE='110000'
+
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See http://doc.scrapy.org/en/latest/topics/autothrottle.html
 #AUTOTHROTTLE_ENABLED = True

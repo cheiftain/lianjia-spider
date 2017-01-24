@@ -5,6 +5,7 @@ from scrapy import log
 from scrapy.http import Request
 from scrapy.spiders import Spider
 from bs4 import BeautifulSoup
+from scrapy.conf import settings
 
 from scrapycrawler.items import HouseDetailItem
 
@@ -13,7 +14,7 @@ class LianjiaSpider(Spider):
     name = 'lianjia'
     allowed_domains = ['m.lianjia.com']
     base_url = 'http://m.lianjia.com'
-    start_url = '{}/mapi/dict/city/Info?city_id=110000'.format(base_url)
+    start_url = '{}/mapi/dict/city/Info?city_id={}'.format(base_url, settings['CITY_CODE'])
     custom_settings = {
         "DEFAULT_REQUEST_HEADERS": {
             'accept': 'application/json',

@@ -9,7 +9,6 @@ import pymongo
 
 from scrapy import log
 from scrapy.conf import settings
-from scrapy.exceptions import DropItem
 
 from scrapycrawler.items import HouseDetailItem
 
@@ -33,9 +32,5 @@ class HouseDetailPipeline(object):
 
     def process_item(self, item, spider):
         if isinstance(item, HouseDetailItem):
-            #if not item.get('price', '暂无价格') == '暂无价格':
-            self.collection.insert(dict(item))
             log.msg('Item written to MongoDB database %s/%s' % (self.db, self.col), level=log.DEBUG, spider=spider)
             return item
-            #else:
-            #    raise DropItem("No price item.")
